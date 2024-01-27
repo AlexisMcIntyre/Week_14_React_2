@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Form from './Mods/Form';
+import BookReviewList from './Mods/BookReviewList';
 import './App.css';
+import { v4 as uuidv4 } from "uuid";
+
 
 function App() {
-  return (
+  const [reviews, setReviews] = useState([]);
+  const [form, setForm] = useState([{book: "", review: "", id: uuidv4() }]); //setForm is state hook
+
+  return ( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <h1>Book Reviews</h1>
+     <Form form={form} reviews={reviews} setForm={setForm} setReviews={setReviews} />
+     <BookReviewList reviews={reviews} />
+    </div> 
   );
 }
 
