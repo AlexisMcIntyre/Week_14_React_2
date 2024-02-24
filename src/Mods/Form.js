@@ -1,15 +1,24 @@
 import React from 'react';
 import { v4 as uuidv4 } from "uuid"; //this assigns IDs to each review for record keeping
 
-//The main purpose of the form component is to create a function to keep track of the state and update the state in real time (update state with user input). It exports the constants form and reviews with the setForm and setReviews methods associated with them.
-
 export const Form = ({form, reviews, setForm, setReviews}) => {
 
-    const handleSubmit = e => { //e is an event
-        e.preventDefault(); //This prevents default refresh with submission
-        setReviews([...reviews, form]); //This adds the form input to the reviews that are used in the BookReviewList component. The click of the submit button is connected to the form element so the input taken from the user adds to the reviews upon clicking the submit button.
-        setForm ({book: "", review: "", id: uuidv4() }); //This resets the form for a better user experience
+//handleChange takes the input from the user and uses setForm to spread the form array and add "book" and "review" to the form array.  The computed property name, [name] makes the code cleaner and more reuseable.
+
+    const handleChange = e => {
+        const {name, value} = e.target; 
+        setForm({...form, [name]: value }); 
     }
+
+
+//handleSubmit prevents default refreshes, then sets the reviews by spreading the reviews array and adding the form (populated by handleChange). Then the form is reset for a better user experience.
+    const handleSubmit = e => {
+        e.preventDefault();
+        setReviews([...reviews, form]);
+        setForm ({book: "", review: "", id: uuidv4() });
+    }
+
+//The form below accepts user input for a book and a review via handleChange. When the submit button is clicked, the handleSubmit method is run on the form.
 
     return (
         <form onSubmit={handleSubmit}>
@@ -20,15 +29,17 @@ export const Form = ({form, reviews, setForm, setReviews}) => {
                 placeholder="Book Name" 
                 id="book"
                 name="book"
-                value={form.book} //props
+                value={form.book}
                 autoComplete="off"
+                onChange={handleChange}
                 />
             <label htmlFor="review">Review</label>
             <textarea
-                value={form.review} //props
+                value={form.review}
                 placeholder="Write Review Here!" 
                 id="review"
                 name="review"
+                onChange={handleChange}
                 />
                 <button type="submit">Submit</button>
         </form>

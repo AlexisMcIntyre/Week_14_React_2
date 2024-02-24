@@ -6,10 +6,11 @@ import Book from './Mods/Book';
 
 
 function App() {
-  const [reviews, setReviews] = useState([]); //here is the UseState hook that accepts the reviews as the current state and updates this stte with the method setReviews
-  const [form, setForm] = useState([{book: "", review: "", id: uuidv4() }]); //useState hook is used again to reset the values inside of the form to the initial state of an empty string
+  const [reviews, setReviews] = useState([]); //Here the reviews array is created which is made up of Forms. The UseState hook accepts the reviews as the current state and updates this state with the method setReviews.
+  const [form, setForm] = useState([{book: "", review: "", id: uuidv4() }]); //The form array is created here which is formatted of a book string, a review string, and an id that is automatically assigned by uuid.
 
-  /*Below in the return, the App displays the Book, Form, and BookReviewList components. The Form component has the props form, reviews, setForm, and setReviews passed in fromt he Form component. BookReviewList also has the reviews passed in via props.*/
+  /*Below in the return, the App displays the Book, Form, and BookReviewList components. The Form and BookReviewList use props.*/
+
   return ( 
     <div className="App">
      <h1>Book Reviews</h1>

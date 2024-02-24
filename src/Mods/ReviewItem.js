@@ -1,7 +1,7 @@
 import React from "react";
 
 
-//Thi ReviewItem module accepts reviews via props and displays them in the return. This component is used as a part of BookReviewList. The properties book and review are displayed.
+//The ReviewItem module accepts reviews via props and displays them in the return. This component is used as a part of BookReviewList. The properties book and review are displayed.
 
 const ReviewItem = ({review}) => {
     return (
