@@ -1,6 +1,9 @@
 import React from 'react';
 import ReviewItem from './ReviewItem';
 
+
+//The BookReviewList module diplays reviews, if there are any, using the "map" method. It pulls any reviews from the reviews array (via props) and lists the out using "map". Each time it maps a review, it is placed into the ReviewItem component, which creates a list of ReviewItems.
+
 const BookReviewList = ({reviews}) => {  
     return (
       <div>

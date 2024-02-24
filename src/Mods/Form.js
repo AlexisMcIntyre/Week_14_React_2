@@ -1,17 +1,14 @@
 import React from 'react';
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid"; //this assigns IDs to each review for record keeping
+
+//The main purpose of the form component is to create a function to keep track of the state and update the state in real time (update state with user input). It exports the constants form and reviews with the setForm and setReviews methods associated with them.
 
 export const Form = ({form, reviews, setForm, setReviews}) => {
 
-    const handleChange = e => {  //e means event
-        const {name, value} = e.target;
-        setForm({...form, [name]: value }); //the [] are a computed property name that will take the name from the input below and set it equal to the value; same as set Form = form['book'] = typed things
-    }
-
-    const handleSubmit = e => {
-        e.preventDefault(); //prevents default refresh with submission
-        setReviews([...reviews, form]);
-        setForm ({book: "", review: "", id: uuidv4() });
+    const handleSubmit = e => { //e is an event
+        e.preventDefault(); //This prevents default refresh with submission
+        setReviews([...reviews, form]); //This adds the form input to the reviews that are used in the BookReviewList component. The click of the submit button is connected to the form element so the input taken from the user adds to the reviews upon clicking the submit button.
+        setForm ({book: "", review: "", id: uuidv4() }); //This resets the form for a better user experience
     }
 
     return (
@@ -23,17 +20,15 @@ export const Form = ({form, reviews, setForm, setReviews}) => {
                 placeholder="Book Name" 
                 id="book"
                 name="book"
-                value={form.book}
+                value={form.book} //props
                 autoComplete="off"
-                onChange={handleChange}
                 />
             <label htmlFor="review">Review</label>
             <textarea
-                value={form.review}
+                value={form.review} //props
                 placeholder="Write Review Here!" 
                 id="review"
                 name="review"
-                onChange={handleChange}
                 />
                 <button type="submit">Submit</button>
         </form>
@@ -41,5 +36,3 @@ export const Form = ({form, reviews, setForm, setReviews}) => {
 }
 
 export default Form
-
-//need to create a function to keepp track of the state and what is being typed and update the state in real time
