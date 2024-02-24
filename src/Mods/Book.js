@@ -1,9 +1,5 @@
 import React from 'react';
-
-
-let test = ['dune','chichi'];
-
-
+import book from "./book.jpg"
 
 export default class Book extends React.Component {    
 
@@ -11,8 +7,7 @@ export default class Book extends React.Component {
         return (
             
             <div className="book">
-                <h1>Title:</h1>
-                <p>{test[1]}</p>
+                <img className="bookpic" src={book}></img>
             </div>      
       
         )

@@ -7,7 +7,59 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+form {
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 5rem;
+}
+
+.review {
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+button {
+  background-color: white;
+  margin-bottom: 100px;
+  border-width: 5px;
+  border-color: white;
+  border-radius: 30px;
+}
+
+.book {
+  background-color: grey;
+  border-style: double;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookpic {
+  height: 25rem;
+  padding: 10px;
+  border-style: solid;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

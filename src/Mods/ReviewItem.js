@@ -2,9 +2,9 @@ import React from "react";
 
 const ReviewItem = ({review}) => {
     return (
-        <div>
-            <h2>{review.book}</h2>
-            <h2>{review.review}</h2>
+        <div className="review">
+            <h3>{review.book}</h3>
+            <p>{review.review}</p>
         </div>
     )
 }
